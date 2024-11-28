@@ -1,0 +1,20 @@
+/* index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.home {
+  @apply bg-gradient-to-r from-blue-500 to-purple-600 min-h-screen flex items-center justify-center;
+}
+
+.container {
+  @apply flex bg-white rounded-xl shadow-2xl overflow-hidden max-w-6xl w-full h-[80vh];
+}
+
+.sidebar {
+  @apply w-1/4 bg-gray-800 text-white p-4;
+}
+
+.chat {
+  @apply w-3/4 bg-gray-100 p-6 relative;
+}

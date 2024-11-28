@@ -56,6 +56,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
 import { db } from "../firebase";
+import { compileString } from "sass";
 
 const Chats = () => {
   const [chats, setChats] = useState({}); // Initialize as an empty object instead of an array
@@ -66,6 +67,7 @@ const Chats = () => {
   useEffect(() => {
     const getChats = () => {
       const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
+        console.log(doc.data.length)
         const data = doc.data();
         if (data) {
           setChats(data); // Only update chats if data is not null or undefined
@@ -94,7 +96,7 @@ const Chats = () => {
           key={chat[0]}
           onClick={() => handleSelect(chat[1].userInfo)}
         >
-          <img src={chat[1].userInfo.photoURL} alt="" />
+          {/* <img src={chat[1].userInfo.photoURL} alt="" /> */}
           <div className="userChatInfo">
             <span>{chat[1].userInfo.displayName}</span>
             <p>{chat[1].lastMessage?.text}</p>
